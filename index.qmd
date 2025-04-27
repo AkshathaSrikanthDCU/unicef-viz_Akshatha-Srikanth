@@ -13,7 +13,6 @@ import pandas as pd
 from plotnine import *
 
 # Load the data
-<<<<<<< HEAD
 df = pd.read_csv("unicef_indicator_1.csv")
 
 # Filter the relevant indicator
@@ -41,7 +40,6 @@ print(world_map_plot)
 ---
 ```bash
 quarto render index.qmd --execute=false
-=======
 df = pd.read_csv("../unicef_indicator_1.csv")
 
 # Scatter plot with regression line
@@ -80,7 +78,6 @@ bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
 
 ## Bar Chart
 ![Bar Chart](bar_chart.png)
->>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb
 format:
   html:
     theme: lux

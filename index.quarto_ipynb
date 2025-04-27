@@ -7,7 +7,7 @@
         "<<<<<<< HEAD\n",
         "======="
       ],
-      "id": "84d54182"
+      "id": "266f7ab1"
     },
     {
       "cell_type": "markdown",
@@ -23,7 +23,7 @@
         "\n",
         ">>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb"
       ],
-      "id": "7ac0af77"
+      "id": "37bf348c"
     },
     {
       "cell_type": "code",
@@ -33,7 +33,6 @@
         "from plotnine import *\n",
         "\n",
         "# Load the data\n",
-        "<<<<<<< HEAD\n",
         "df = pd.read_csv(\"unicef_indicator_1.csv\")\n",
         "\n",
         "# Filter the relevant indicator\n",
@@ -61,7 +60,6 @@
         "---\n",
         "```bash\n",
         "quarto render index.qmd --execute=false\n",
-        "=======\n",
         "df = pd.read_csv(\"../unicef_indicator_1.csv\")\n",
         "\n",
         "# Scatter plot with regression line\n",
@@ -92,7 +90,7 @@
         ")\n",
         "bar_chart.save(\"bar_chart.png\", width=8, height=6, dpi=300)"
       ],
-      "id": "d9514613",
+      "id": "74f117b3",
       "execution_count": null,
       "outputs": []
     },
@@ -108,7 +106,6 @@
         "\n",
         "## Bar Chart\n",
         "![Bar Chart](bar_chart.png)\n",
-        ">>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb\n",
         "format:\n",
         "  html:\n",
         "    theme: lux\n",
@@ -122,7 +119,7 @@
         "\n",
         "The charts demonstrate that while global deaths in children aged 5 to 9 have declined in many regions, significant disparities remain. Countries with higher mortality rates can benefit from targeted health interventions and policy changes. Overall, visual storytelling provides clear insights into where focused efforts can save the most lives.\n"
       ],
-      "id": "e66ca68f"
+      "id": "d8d33e8c"
     }
   ],
   "metadata": {
