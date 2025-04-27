@@ -30,20 +30,21 @@ time_series = (
     + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
 )
 time_series.save("time_series.png", width=8, height=6, dpi=300)
-```
+
 # Bar chart
 bar_chart = (
     ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period', y='obs_value')
-    + geom_col()
+    + aes(x='time_period')
+    + geom_bar()
     + labs(title="Bar Chart of Deaths (Age 5-9)", x="Year", y="Deaths")
 )
 bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
-## 📈 Scatter Plot with Regression Line
+```
+## Scatter Plot
 ![Scatter Plot](scatter_plot.png)
 
-## 🕰️ Time Series of Deaths
-![Time Series](time_series.png)
+## Time Series Plot
+![Time Series Plot](time_series.png)
 
-## 📊 Bar Chart of Deaths
+## Bar Chart
 ![Bar Chart](bar_chart.png)

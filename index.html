@@ -96,7 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="2e7d8619" class="cell" data-execution_count="1">
+<div id="350ffbb9" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -120,35 +120,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_line()</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Time Series of Deaths (Age 5-9)"</span>, x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"Deaths"</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>time_series.save(<span class="st">"time_series.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>time_series.save(<span class="st">"time_series.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>bar_chart <span class="op">=</span> (</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ggplot(df[df[<span class="st">'indicator'</span>] <span class="op">==</span> <span class="st">"Deaths aged 5 to 9"</span>])</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> aes(x<span class="op">=</span><span class="st">'time_period'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_bar()</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Bar Chart of Deaths (Age 5-9)"</span>, x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"Deaths"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>bar_chart.save(<span class="st">"bar_chart.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
 C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: scatter_plot.png
 C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: time_series.png</code></pre>
+C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: time_series.png
+C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
+C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: bar_chart.png</code></pre>
 </div>
 </div>
-<section id="bar-chart" class="level1">
-<h1>Bar chart</h1>
-<p>bar_chart = ( ggplot(df[df[‘indicator’] == “Deaths aged 5 to 9”]) + aes(x=‘time_period’, y=‘obs_value’) + geom_col() + labs(title=“Bar Chart of Deaths (Age 5-9)”, x=“Year”, y=“Deaths”) ) bar_chart.save(“bar_chart.png”, width=8, height=6, dpi=300) ## 📈 Scatter Plot with Regression Line <img src="scatter_plot.png" class="img-fluid" alt="Scatter Plot"></p>
-<section id="time-series-of-deaths" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-of-deaths">🕰️ Time Series of Deaths</h2>
+<section id="scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot">Scatter Plot</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="time_series.png" class="img-fluid figure-img"></p>
-<figcaption>Time Series</figcaption>
+<p><img src="scatter_plot.png" class="img-fluid figure-img"></p>
+<figcaption>Scatter Plot</figcaption>
 </figure>
 </div>
 </section>
-<section id="bar-chart-of-deaths" class="level2">
-<h2 class="anchored" data-anchor-id="bar-chart-of-deaths">📊 Bar Chart of Deaths</h2>
+<section id="time-series-plot" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-plot">Time Series Plot</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="time_series.png" class="img-fluid figure-img"></p>
+<figcaption>Time Series Plot</figcaption>
+</figure>
+</div>
+</section>
+<section id="bar-chart" class="level2">
+<h2 class="anchored" data-anchor-id="bar-chart">Bar Chart</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="bar_chart.png" class="img-fluid figure-img"></p>
 <figcaption>Bar Chart</figcaption>
 </figure>
 </div>
-</section>
 </section>
 
 </main>
