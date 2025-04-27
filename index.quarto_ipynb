@@ -7,7 +7,7 @@
         "<<<<<<< HEAD\n",
         "======="
       ],
-      "id": "38035741"
+      "id": "84d54182"
     },
     {
       "cell_type": "markdown",
@@ -23,7 +23,7 @@
         "\n",
         ">>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb"
       ],
-      "id": "3cc0a851"
+      "id": "7ac0af77"
     },
     {
       "cell_type": "code",
@@ -59,12 +59,6 @@
         "print(world_map_plot)\n",
         "\n",
         "---\n",
-        "\n",
-        "✅ **YES**, you should **delete the entire old world map code** in your `index.qmd`,  \n",
-        "✅ and **replace it with this**.\n",
-        "\n",
-        "✅ Then run:\n",
-        "\n",
         "```bash\n",
         "quarto render index.qmd --execute=false\n",
         "=======\n",
@@ -98,7 +92,7 @@
         ")\n",
         "bar_chart.save(\"bar_chart.png\", width=8, height=6, dpi=300)"
       ],
-      "id": "ccb1cf19",
+      "id": "d9514613",
       "execution_count": null,
       "outputs": []
     },
@@ -114,9 +108,21 @@
         "\n",
         "## Bar Chart\n",
         "![Bar Chart](bar_chart.png)\n",
-        ">>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb"
+        ">>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb\n",
+        "format:\n",
+        "  html:\n",
+        "    theme: lux\n",
+        "## Introduction\n",
+        "\n",
+        "This project visualizes trends in child mortality (ages 5 to 9) across different countries and years, based on UNICEF indicator data. Using Python and Quarto, the visualizations highlight both the magnitude and geographical distribution of deaths to identify areas needing urgent attention.\n",
+        "\n",
+        "---\n",
+        "\n",
+        "## Conclusion\n",
+        "\n",
+        "The charts demonstrate that while global deaths in children aged 5 to 9 have declined in many regions, significant disparities remain. Countries with higher mortality rates can benefit from targeted health interventions and policy changes. Overall, visual storytelling provides clear insights into where focused efforts can save the most lives.\n"
       ],
-      "id": "090c1c3e"
+      "id": "e66ca68f"
     }
   ],
   "metadata": {
