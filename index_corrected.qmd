@@ -1,0 +1,57 @@
+---
+title: "UNICEF Data Analysis"
+format: html
+execute:
+  echo: true
+---
+
+```{python}
+import pandas as pd
+from plotnine import *
+
+# Load the data
+df = pd.read_csv("../unicef_indicator_1.csv")
+
+# Make sure 'time_period' is numeric
+df['time_period'] = pd.to_numeric(df['time_period'], errors='coerce')
+
+# Scatter plot with regression line
+scatter_plot = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value')
+    + geom_point()
+    + geom_smooth(method='lm')
+    + labs(title="Scatter Plot with Regression Line", x="Year", y="Deaths")
+)
+scatter_plot.save("scatter_plot.png", width=8, height=6, dpi=300)
+
+# Time series plot
+time_series = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value', group=1)
+    + geom_line()
+    + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
+)
+time_series.save("time_series.png", width=8, height=6, dpi=300)
+
+# Bar chart
+bar_chart = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value')
+    + geom_col()
+    + labs(title="Bar Chart of Deaths (Age 5-9)", x="Year", y="Deaths")
+)
+bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
+```
+
+## Scatter Plot with Regression Line
+
+![Scatter Plot](scatter_plot.png)
+
+## Time Series Plot
+
+![Time Series Plot](time_series.png)
+
+## Bar Chart of Deaths
+
+![Bar Chart](bar_chart.png)
