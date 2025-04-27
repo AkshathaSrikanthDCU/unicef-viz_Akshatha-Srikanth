@@ -31,20 +31,19 @@ time_series = (
 )
 time_series.save("time_series.png", width=8, height=6, dpi=300)
 ```
----
+# Bar chart
+bar_chart = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value')
+    + geom_col()
+    + labs(title="Bar Chart of Deaths (Age 5-9)", x="Year", y="Deaths")
+)
+bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
+## 📈 Scatter Plot with Regression Line
+![Scatter Plot](scatter_plot.png)
 
-# 🛑 Notice:
-- Code block `{python}` ends first ✅
-- **Then** normal markdown text shows the **two images** using `![ ]( )`
-- The graphs will now show correctly when you **render and upload**.
+## 🕰️ Time Series of Deaths
+![Time Series](time_series.png)
 
----
-
-# 🔥 What you need to do next:
-1. Replace your `index.qmd` with the above full content.
-2. Save the file.
-3. Run:
-
-```bash
-quarto render index.qmd --execute
-
+## 📊 Bar Chart of Deaths
+![Bar Chart](bar_chart.png)
