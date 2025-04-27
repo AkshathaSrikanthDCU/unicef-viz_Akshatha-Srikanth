@@ -1,0 +1,38 @@
+```{python}
+import pandas as pd
+from plotnine import *
+
+# Load the data
+df = pd.read_csv("unicef_indicator_1.csv")
+
+# Filter the relevant indicator
+df_filtered = df[df['indicator'] == "Deaths aged 5 to 9"]
+
+# Create the World Map plot
+world_map_plot = (
+    ggplot(df_filtered)
+    + aes(x='country', weight='obs_value')
+    + geom_bar()
+    + labs(
+        title='Deaths aged 5 to 9 (World Map Representation)',
+        x='Country',
+        y='Number of Deaths'
+    )
+    + theme_minimal()
+)
+
+# Save it as a PNG file
+world_map_plot.save("world_map.png", width=12, height=6, dpi=300)
+
+# (Optional) Display it
+print(world_map_plot)
+
+---
+
+✅ **YES**, you should **delete the entire old world map code** in your `index.qmd`,  
+✅ and **replace it with this**.
+
+✅ Then run:
+
+```bash
+quarto render index.qmd --execute=false
