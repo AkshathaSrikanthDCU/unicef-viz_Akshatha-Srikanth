@@ -89,4 +89,52 @@ This project visualizes trends in child mortality (ages 5 to 9) across different
 ## Conclusion
 
 The charts demonstrate that while global deaths in children aged 5 to 9 have declined in many regions, significant disparities remain. Countries with higher mortality rates can benefit from targeted health interventions and policy changes. Overall, visual storytelling provides clear insights into where focused efforts can save the most lives.
+---
+title: "UNICEF Child Mortality Visualization"
+format: html
+theme: lux
+---
+
+# Introduction
+
+Child mortality rates provide critical insights into a country's healthcare, education, and overall socio-economic conditions.  
+This visualization explores deaths among children aged 5 to 9 years across different countries and over time, using UNICEF data.
+
+# World Map
+
+```{python}
+import pandas as pd
+from plotnine import *
+df = pd.read_csv("unicef_indicator_1.csv")
+
+bar_chart = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value')
+    + geom_bar(stat="identity")
+    + labs(title="Bar Chart of Deaths (Age 5–9)", x="Year", y="Deaths")
+)
+bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
+bar_chart
+time_series = (
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value', group=1)
+    + geom_line()
+    + labs(title="Time Series of Deaths (Age 5–9)", x="Year", y="Deaths")
+)
+time_series.save("time_series.png", width=8, height=6, dpi=300)
+time_series
+
+---
+
+✅ After you paste this:
+
+1. Save the `index.qmd`.
+2. Then in PowerShell:
+
+```bash
+quarto render index.qmd
+git add .
+git commit -m "Add Introduction and Conclusion"
+git push
+
 
