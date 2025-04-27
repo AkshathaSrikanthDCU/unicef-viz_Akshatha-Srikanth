@@ -1,137 +1,35 @@
+---
+title: "UNICEF Data Analysis"
+format: html
+theme: lux
+execute:
+  echo: true
+---
+
 # Introduction
 
 Child mortality remains a critical global health issue, particularly among children aged 5 to 9 years.  
 This report visualizes UNICEF data to examine patterns of child deaths over time and across different regions.  
 Using Python and Quarto, key trends are highlighted to identify where progress has been made and where challenges persist.
----
-title: "UNICEF Data Analysis"
-format: html
-execute:
-  echo: true
 
->>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb
-```{python}
-import pandas as pd
-from plotnine import *
+# Scatter Plot of Deaths (Age 5–9)
 
-# Load the data
-df = pd.read_csv("unicef_indicator_1.csv")
+![](scatter_plot.png)
 
-# Filter the relevant indicator
-df_filtered = df[df['indicator'] == "Deaths aged 5 to 9"]
+# Time Series Analysis of Deaths (Age 5–9)
 
-# Create the World Map plot
-world_map_plot = (
-    ggplot(df_filtered)
-    + aes(x='country', weight='obs_value')
-    + geom_bar()
-    + labs(
-        title='Deaths aged 5 to 9 (World Map Representation)',
-        x='Country',
-        y='Number of Deaths'
-    )
-    + theme_minimal()
-)
+![](time_series.png)
 
-# Save it as a PNG file
-world_map_plot.save("world_map.png", width=12, height=6, dpi=300)
+# Bar Chart of Deaths by Country (Age 5–9)
 
-# (Optional) Display it
-print(world_map_plot)
+![](bar_chart.png)
 
----
-```bash
-quarto render index.qmd --execute=false
-df = pd.read_csv("../unicef_indicator_1.csv")
+# World Map Visualization
 
-# Scatter plot with regression line
-scatter_plot = (
-    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period', y='obs_value')
-    + geom_point()
-    + geom_smooth(method='lm')
-    + labs(title="Scatter Plot with Regression Line", x="Year", y="Deaths")
-)
-scatter_plot.save("scatter_plot.png", width=8, height=6, dpi=300)
+![](world_map.png)
 
-# Time series plot
-time_series = (
-    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period', y='obs_value', group=1)
-    + geom_line()
-    + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
-)
-time_series.save("time_series.png", width=8, height=6, dpi=300)
-
-# Bar chart
-bar_chart = (
-    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period')
-    + geom_bar()
-    + labs(title="Bar Chart of Deaths (Age 5-9)", x="Year", y="Deaths")
-)
-bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
-```
-## Scatter Plot
-![Scatter Plot](scatter_plot.png)
-
-## Time Series Plot
-![Time Series Plot](time_series.png)
-
-## Bar Chart
-![Bar Chart](bar_chart.png)
-format:
-  html:
-    theme: lux
-## Introduction
-
-This project visualizes trends in child mortality (ages 5 to 9) across different countries and years, based on UNICEF indicator data. Using Python and Quarto, the visualizations highlight both the magnitude and geographical distribution of deaths to identify areas needing urgent attention.
-
----
-
-## Conclusion
-
-The charts demonstrate that while global deaths in children aged 5 to 9 have declined in many regions, significant disparities remain. Countries with higher mortality rates can benefit from targeted health interventions and policy changes. Overall, visual storytelling provides clear insights into where focused efforts can save the most lives.
----
-title: "UNICEF Child Mortality Visualization"
-format: html
-theme: lux
----
-
-# Introduction
-
-Child mortality rates provide critical insights into a country's healthcare, education, and overall socio-economic conditions.  
-This visualization explores deaths among children aged 5 to 9 years across different countries and over time, using UNICEF data.
-
-# World Map
-
-```{python}
-import pandas as pd
-from plotnine import *
-df = pd.read_csv("unicef_indicator_1.csv")
-
-bar_chart = (
-    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period', y='obs_value')
-    + geom_bar(stat="identity")
-    + labs(title="Bar Chart of Deaths (Age 5–9)", x="Year", y="Deaths")
-)
-bar_chart.save("bar_chart.png", width=8, height=6, dpi=300)
-bar_chart
-time_series = (
-    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
-    + aes(x='time_period', y='obs_value', group=1)
-    + geom_line()
-    + labs(title="Time Series of Deaths (Age 5–9)", x="Year", y="Deaths")
-)
-time_series.save("time_series.png", width=8, height=6, dpi=300)
-time_series
-```
 # Conclusion
 
 The analysis shows a positive downward trend in child mortality across many countries, but also highlights regions where deaths remain high.  
 Strategic health interventions, improved infrastructure, and stronger policy initiatives are essential to further reduce preventable deaths.  
 Visual storytelling through data enables better understanding and supports global efforts toward improving child health outcomes.
-
-
-

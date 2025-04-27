@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -66,7 +32,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-39a3dca25b54bdef9b4e116fdde5af95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -96,91 +62,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<<<<<<< HEAD
-<div id="1218b757" class="cell" data-execution_count="1">
-=======
-<div id="350ffbb9" class="cell" data-execution_count="1">
->>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../unicef_indicator_1.csv"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot with regression line</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>scatter_plot <span class="op">=</span> (</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ggplot(df[df[<span class="st">'indicator'</span>] <span class="op">==</span> <span class="st">"Deaths aged 5 to 9"</span>])</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> aes(x<span class="op">=</span><span class="st">'time_period'</span>, y<span class="op">=</span><span class="st">'obs_value'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_point()</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_smooth(method<span class="op">=</span><span class="st">'lm'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Scatter Plot with Regression Line"</span>, x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"Deaths"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>scatter_plot.save(<span class="st">"scatter_plot.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Time series plot</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>time_series <span class="op">=</span> (</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ggplot(df[df[<span class="st">'indicator'</span>] <span class="op">==</span> <span class="st">"Deaths aged 5 to 9"</span>])</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> aes(x<span class="op">=</span><span class="st">'time_period'</span>, y<span class="op">=</span><span class="st">'obs_value'</span>, group<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_line()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Time Series of Deaths (Age 5-9)"</span>, x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"Deaths"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>time_series.save(<span class="st">"time_series.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>bar_chart <span class="op">=</span> (</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ggplot(df[df[<span class="st">'indicator'</span>] <span class="op">==</span> <span class="st">"Deaths aged 5 to 9"</span>])</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> aes(x<span class="op">=</span><span class="st">'time_period'</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_bar()</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Bar Chart of Deaths (Age 5-9)"</span>, x<span class="op">=</span><span class="st">"Year"</span>, y<span class="op">=</span><span class="st">"Deaths"</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>bar_chart.save(<span class="st">"bar_chart.png"</span>, width<span class="op">=</span><span class="dv">8</span>, height<span class="op">=</span><span class="dv">6</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: scatter_plot.png
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: time_series.png
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:615: PlotnineWarning: Saving 8 x 6 in image.
-C:\Users\Akshatha\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotnine\ggplot.py:616: PlotnineWarning: Filename: bar_chart.png</code></pre>
-</div>
-</div>
-<section id="scatter-plot" class="level2">
-<h2 class="anchored" data-anchor-id="scatter-plot">Scatter Plot</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="scatter_plot.png" class="img-fluid figure-img"></p>
-<figcaption>Scatter Plot</figcaption>
-</figure>
-</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Child mortality remains a critical global health issue, particularly among children aged 5 to 9 years.<br>
+This report visualizes UNICEF data to examine patterns of child deaths over time and across different regions.<br>
+Using Python and Quarto, key trends are highlighted to identify where progress has been made and where challenges persist.</p>
 </section>
-<section id="time-series-plot" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-plot">Time Series Plot</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="time_series.png" class="img-fluid figure-img"></p>
-<figcaption>Time Series Plot</figcaption>
-</figure>
-</div>
+<section id="scatter-plot-of-deaths-age-59" class="level1">
+<h1>Scatter Plot of Deaths (Age 5–9)</h1>
+<p><img src="scatter_plot.png" class="img-fluid"></p>
 </section>
-<section id="bar-chart" class="level2">
-<h2 class="anchored" data-anchor-id="bar-chart">Bar Chart</h2>
-<<<<<<< HEAD
-<p><img src="bar_chart.png" class="img-fluid" alt="Bar Chart"> # World map plot from plotnine.data import world</p>
+<section id="time-series-analysis-of-deaths-age-59" class="level1">
+<h1>Time Series Analysis of Deaths (Age 5–9)</h1>
+<p><img src="time_series.png" class="img-fluid"></p>
 </section>
-<section id="merge-unicef-data-with-world-map" class="level1">
-<h1>Merge UNICEF data with world map</h1>
-<p>world_data = pd.merge(world, df[df[‘indicator’] == “Deaths aged 5 to 9”], left_on=‘name’, right_on=‘location’, how=‘left’)</p>
+<section id="bar-chart-of-deaths-by-country-age-59" class="level1">
+<h1>Bar Chart of Deaths by Country (Age 5–9)</h1>
+<p><img src="bar_chart.png" class="img-fluid"></p>
 </section>
-<section id="plot-world-map" class="level1">
-<h1>Plot world map</h1>
-<p>world_map = ( ggplot(world_data) + aes(x=‘long’, y=‘lat’, group=‘group’, fill=‘obs_value’) + geom_polygon(color=“white”) + scale_fill_continuous(name=“Deaths”, na_value=‘gray’) + labs(title=“World Map of Deaths Aged 5 to 9”) + coord_fixed() ) world_map.save(“world_map.png”, width=10, height=6, dpi=300) <img src="world_map.png" class="img-fluid" alt="World Map of Deaths Aged 5 to 9"></p>
-=======
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="bar_chart.png" class="img-fluid figure-img"></p>
-<figcaption>Bar Chart</figcaption>
-</figure>
-</div>
->>>>>>> 449aa1b952f711d0531b4c76dacafb909c4238cb
+<section id="world-map-visualization" class="level1">
+<h1>World Map Visualization</h1>
+<p><img src="world_map.png" class="img-fluid"></p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The analysis shows a positive downward trend in child mortality across many countries, but also highlights regions where deaths remain high.<br>
+Strategic health interventions, improved infrastructure, and stronger policy initiatives are essential to further reduce preventable deaths.<br>
+Visual storytelling through data enables better understanding and supports global efforts toward improving child health outcomes.</p>
 </section>
 
 </main>
