@@ -20,7 +20,6 @@ scatter_plot = (
     + geom_smooth(method='lm')
     + labs(title="Scatter Plot with Regression Line", x="Year", y="Deaths")
 )
-# Save scatter plot
 scatter_plot.save("scatter_plot.png", width=8, height=6, dpi=300)
 
 # Time series plot
@@ -30,21 +29,22 @@ time_series = (
     + geom_line()
     + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
 )
-# Save time series plot
 time_series.save("time_series.png", width=8, height=6, dpi=300)
 ```
-# Scatter Plot with Regression Line
+---
 
-![Scatter Plot](scatter_plot.png)
-
-# Time Series Plot
-
-![Time Series Plot](time_series.png)
+# 🛑 Notice:
+- Code block `{python}` ends first ✅
+- **Then** normal markdown text shows the **two images** using `![ ]( )`
+- The graphs will now show correctly when you **render and upload**.
 
 ---
 
-# 🚀 What to do next:
-1. Save this updated `index.qmd`.
-2. Run:
+# 🔥 What you need to do next:
+1. Replace your `index.qmd` with the above full content.
+2. Save the file.
+3. Run:
+
 ```bash
 quarto render index.qmd --execute
+
