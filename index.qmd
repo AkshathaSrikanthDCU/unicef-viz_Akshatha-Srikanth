@@ -13,20 +13,38 @@ from plotnine import *
 df = pd.read_csv("../unicef_indicator_1.csv")
 
 # Scatter plot with regression line
-(
+scatter_plot = (
     ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
     + aes(x='time_period', y='obs_value')
     + geom_point()
     + geom_smooth(method='lm')
     + labs(title="Scatter Plot with Regression Line", x="Year", y="Deaths")
 )
-```
-```{python}
+# Save scatter plot
+scatter_plot.save("scatter_plot.png", width=8, height=6, dpi=300)
+
 # Time series plot
-(
+time_series = (
     ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
     + aes(x='time_period', y='obs_value', group=1)
     + geom_line()
     + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
 )
+# Save time series plot
+time_series.save("time_series.png", width=8, height=6, dpi=300)
 ```
+# Scatter Plot with Regression Line
+
+![Scatter Plot](scatter_plot.png)
+
+# Time Series Plot
+
+![Time Series Plot](time_series.png)
+
+---
+
+# 🚀 What to do next:
+1. Save this updated `index.qmd`.
+2. Run:
+```bash
+quarto render index.qmd --execute
