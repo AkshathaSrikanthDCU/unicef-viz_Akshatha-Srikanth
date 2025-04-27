@@ -1,0 +1,32 @@
+---
+title: "UNICEF Data Analysis"
+format: html
+execute:
+  echo: true
+---
+
+```{python}
+import pandas as pd
+from plotnine import *
+
+# Load the data
+df = pd.read_csv("../unicef_indicator_1.csv")
+
+# Scatter plot with regression line
+(
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value')
+    + geom_point()
+    + geom_smooth(method='lm')
+    + labs(title="Scatter Plot with Regression Line", x="Year", y="Deaths")
+)
+```
+```{python}
+# Time series plot
+(
+    ggplot(df[df['indicator'] == "Deaths aged 5 to 9"])
+    + aes(x='time_period', y='obs_value', group=1)
+    + geom_line()
+    + labs(title="Time Series of Deaths (Age 5-9)", x="Year", y="Deaths")
+)
+```
