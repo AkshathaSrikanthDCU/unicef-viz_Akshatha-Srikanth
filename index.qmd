@@ -1,5 +1,8 @@
-<<<<<<< HEAD
-=======
+# Introduction
+
+Child mortality remains a critical global health issue, particularly among children aged 5 to 9 years.  
+This report visualizes UNICEF data to examine patterns of child deaths over time and across different regions.  
+Using Python and Quarto, key trends are highlighted to identify where progress has been made and where challenges persist.
 ---
 title: "UNICEF Data Analysis"
 format: html
@@ -123,18 +126,12 @@ time_series = (
 )
 time_series.save("time_series.png", width=8, height=6, dpi=300)
 time_series
+```
+# Conclusion
 
----
+The analysis shows a positive downward trend in child mortality across many countries, but also highlights regions where deaths remain high.  
+Strategic health interventions, improved infrastructure, and stronger policy initiatives are essential to further reduce preventable deaths.  
+Visual storytelling through data enables better understanding and supports global efforts toward improving child health outcomes.
 
-✅ After you paste this:
-
-1. Save the `index.qmd`.
-2. Then in PowerShell:
-
-```bash
-quarto render index.qmd
-git add .
-git commit -m "Add Introduction and Conclusion"
-git push
 
 
